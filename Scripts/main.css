@@ -1,11 +1,36 @@
-<style > 
+<style > b {}
+
+.username {
+    color: crimson;
+    font-size: 16px;
+}
+
+h1 {
+    color: brown;
+    margin: 0 auto;
+    border-radius: 10px;
+    width: 800px;
+    background: beige;
+    padding: 10px;
+
+}
+
+.add-post {
+    font-size: 20px;
+    text-align:center;
+}
+
+
+body {
+    background-image: linear-gradient(darkseagreen, cornsilk);
+}
 
 input {
     line-height: 20px;
 }
 
 textarea {
-  resize: none;
+    resize: none;
 }
 
 div {}

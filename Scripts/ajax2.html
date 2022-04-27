@@ -1,45 +1,49 @@
 <html>
+<header>
+    <br>
+    <h1>equestrian-web.html </h1>
+
+</header>
 
 <head>
     <link href="main.css" rel="stylesheet" type="text/css">
     <script>
         function updateComments(username, comment) {
-            if (username.length == 0 && comment.length == 0) {
-                document.getElementById("txtComments").innerHTML = "";
-                return;
-            } else {
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        document.getElementById("txtComments").innerHTML = this.responseText;
-                    }
-                };
-                xmlhttp.open("GET", "getComments.php?q=" + username + "&b=" + comment, true);
-                xmlhttp.send();
-            }
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("txtComments").innerHTML = this.responseText;
+                }
+            };
+            xmlhttp.open("GET", "getComments.php?q=" + username + "&b=" + comment, true);
+            xmlhttp.send();
         }
+        document.ready(updateComments("", ""));
 
     </script>
 </head>
 
-<body>
-    <p><b>Write a comment below</b></p>
+<body onload="updateComments('','')">
+    <br>
     <div class="borderexample">
         <form action="">
+            <b class="add-post">Make your own forum Post</b>
+            <br> <br>
+
             <label for="fname">Username:</label>
             <br>
             <input type="text" id="fname" name="fname" size="12" maxlength="12">
             <br>
             <label for="fname">Comment:</label>
-            <input type="text" id="fcomment" name="fcomment" size="50">     
-            <textarea id="comment" name="Comment" rows="5" cols="20"></textarea>
+            <br>
+            <textarea id="fcomment" name="fcomment" rows="10" cols="40"></textarea>
 
             <br>
             <br>
             <button type='button' onclick="updateComments(document.getElementsByName('fname')[0].value, document.getElementsByName('fcomment')[0].value)">Submit Comment</button>
         </form>
     </div>
-    <p>Comments: <span id="txtComments"></span></p>
+    <p><b class="add-post">Other forum posts</b></p> <span id="txtComments"></span>
 </body>
 
 </html>
