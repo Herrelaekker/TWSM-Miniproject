@@ -1,0 +1,45 @@
+<html>
+
+<head>
+    <link href="main.css" rel="stylesheet" type="text/css">
+    <script>
+        function updateComments(username, comment) {
+            if (username.length == 0 && comment.length == 0) {
+                document.getElementById("txtComments").innerHTML = "";
+                return;
+            } else {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("txtComments").innerHTML = this.responseText;
+                    }
+                };
+                xmlhttp.open("GET", "getComments.php?q=" + username + "&b=" + comment, true);
+                xmlhttp.send();
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <p><b>Write a comment below</b></p>
+    <div class="borderexample">
+        <form action="">
+            <label for="fname">Username:</label>
+            <br>
+            <input type="text" id="fname" name="fname" size="12" maxlength="12">
+            <br>
+            <label for="fname">Comment:</label>
+            <input type="text" id="fcomment" name="fcomment" size="50">     
+            <textarea id="comment" name="Comment" rows="5" cols="20"></textarea>
+
+            <br>
+            <br>
+            <button type='button' onclick="updateComments(document.getElementsByName('fname')[0].value, document.getElementsByName('fcomment')[0].value)">Submit Comment</button>
+        </form>
+    </div>
+    <p>Comments: <span id="txtComments"></span></p>
+</body>
+
+</html>
