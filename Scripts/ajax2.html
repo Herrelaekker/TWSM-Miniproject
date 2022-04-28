@@ -6,7 +6,11 @@
 </header>
 
 <head>
+
     <link href="main.css" rel="stylesheet" type="text/css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
     <script>
         function updateComments(username, comment) {
             var xmlhttp = new XMLHttpRequest();
@@ -17,15 +21,19 @@
             };
             xmlhttp.open("GET", "getComments.php?q=" + username + "&b=" + comment, true);
             xmlhttp.send();
+            $("#fading").fadeOut();
+            $("#fadeBtn").fadeIn();
+
         }
-        document.ready(updateComments("", ""));
 
     </script>
 </head>
 
 <body onload="updateComments('','')">
     <br>
-    <div class="borderexample">
+    <button class="fadeBtn" type="button" id="fadeBtn">+</button>
+    <br>
+    <div class="borderexample" id="fading">
         <form action="">
             <b class="add-post">Make your own forum Post</b>
             <br> <br>
@@ -47,5 +55,16 @@
     <br>
     <span id="txtComments"></span>
 </body>
+
+<script>
+    $("#fading").hide();
+
+    $("#fadeBtn").click(function() {
+        $("#fading").fadeIn();
+        $("#fadeBtn").hide();
+
+    });
+
+</script>
 
 </html>
