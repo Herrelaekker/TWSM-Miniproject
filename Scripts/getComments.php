@@ -3,14 +3,15 @@
 include 'connect.php';
 
 
-   	$name = $_REQUEST["q"];
-    $comment = $_REQUEST["b"];
+$name = $_GET["username"];
+$comment = $_GET["comment"];
 
-    if (empty($name) or empty($comment)) {
-    } else {
+if (empty($name) or empty($comment)) {
+} else {
     $sql = "INSERT INTO Posts (username, comment)
-VALUES ('$name', '$comment')";
-    $result = mysqli_query($connect, $sql);}
+    VALUES ('$name', '$comment')";
+    $result = mysqli_query($connect, $sql);
+}
     
 $sql = "SELECT id, username, comment, reg_date FROM Posts ORDER BY id DESC";
 $result = mysqli_query($connect, $sql);
@@ -22,7 +23,5 @@ if (mysqli_num_rows($result) > 0) {
         
         echo "<br><div class='borderexample'><b class='username'>" . $row["username"] ."</b> ". $row["reg_date"]. "</br><br>" . $row["comment"]. "</div></br>";
     }
-} else {
-    echo "0 results";
 }
 ?>

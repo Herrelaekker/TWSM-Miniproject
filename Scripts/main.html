@@ -19,7 +19,7 @@
                     document.getElementById("txtComments").innerHTML = this.responseText;
                 }
             };
-            xmlhttp.open("GET", "getComments.php?q=" + username + "&b=" + comment, true);
+            xmlhttp.open("GET", "getComments.php?username=" + username + "&comment=" + comment, true);
             xmlhttp.send();
             $("#fading").fadeOut();
             $("#fadeBtn").fadeIn();
