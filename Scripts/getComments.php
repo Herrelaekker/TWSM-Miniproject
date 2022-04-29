@@ -19,9 +19,7 @@ $result = mysqli_query($connect, $sql);
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
     while($row = mysqli_fetch_assoc($result)) {
-        //$newDate = date("d-m-Y", strtotime($row["reg_date"]));
-        
-        echo "<br><div class='borderexample'><b class='username'>" . $row["username"] ."</b> ". $row["reg_date"]. "</br><br>" . $row["comment"]. "</div></br>";
+        echo "<br><div class='borderbox'><b class='username'>" . $row["username"] ."</b> ". $row["reg_date"]. "</br><br>" . $row["comment"]. "</div></br>";
     }
 }
 ?>

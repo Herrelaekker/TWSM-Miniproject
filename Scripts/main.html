@@ -33,7 +33,7 @@
     <br>
     <button class="fadeBtn" type="button" id="fadeBtn">+</button>
     <br>
-    <div class="borderexample" id="fading">
+    <div class="borderbox" id="fading">
         <form action="">
             <b class="add-post">Make your own forum Post</b>
             <br> <br>
@@ -48,22 +48,20 @@
 
             <br>
             <br>
-            <button type='button' onclick="updateComments(document.getElementsByName('fname')[0].value, document.getElementsByName('fcomment')[0].value)">Submit Comment</button>
+            <button type='button' onclick="updateComments(document.getElementsByName('fname')[0].value, document.getElementsByName('fcomment')[0].value)">Submit Post</button>
         </form>
-
     </div>
     <br>
     <span id="txtComments"></span>
 </body>
 
 <script>
-    $("#fading").hide();
-
-    $("#fadeBtn").click(function() {
-        $("#fading").fadeIn();
-        $("#fadeBtn").hide();
-
-    });
+    
+$("#fading").hide();
+$("#fadeBtn").click(function() {
+    $("#fading").fadeIn();
+    $("#fadeBtn").hide();
+});
 
 </script>
 

@@ -13,5 +13,4 @@ comment VARCHAR(300) NOT NULL,
 reg_date TIMESTAMP
 )";
 
-mysqli_query($connect, $sql);
 ?>
